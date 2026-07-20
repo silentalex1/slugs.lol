@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: slugs-lol-website
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    nodeVersion: 18
