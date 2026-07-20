@@ -1,11 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700&display=swap');
 
-body {
+html, body {
     font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #030303;
+    overflow-x: hidden;
+}
+
+.bg-grid {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.radial-mask {
+    background: radial-gradient(circle at 50% 20%, transparent 10%, #030303 75%);
+}
+
+.identity-text {
+    font-family: 'Playfair Display', serif;
+}
+
+.polygon-triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -13,10 +35,87 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #1a1a1a;
-    border-radius: 4px;
+    background: #16161a;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.03);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #252525;
+    background: #1f1f24;
+}
+
+.shape-1 {
+    animation: float1 22s infinite ease-in-out alternate;
+}
+
+.shape-2 {
+    animation: float2 26s infinite ease-in-out alternate;
+}
+
+.animate-float-slow {
+    animation: floatSlow 14s infinite ease-in-out alternate;
+}
+
+.animate-float-alternate {
+    animation: floatAlt 18s infinite ease-in-out alternate;
+}
+
+@keyframes float1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(60px, 30px) scale(1.1); }
+}
+
+@keyframes float2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-50px, -40px) scale(1.15); }
+}
+
+@keyframes floatSlow {
+    0% { transform: rotate(-12deg) translateY(0px); }
+    100% { transform: rotate(-10deg) translateY(-20px); }
+}
+
+@keyframes floatAlt {
+    0% { transform: rotate(15deg) translate(0px, 0px); }
+    100% { transform: rotate(12deg) translate(-15px, 25px); }
+}
+
+.faq-item-active {
+    border-color: rgba(59, 130, 246, 0.2) !important;
+    background-color: #070709 !important;
+}
+
+.faq-item-active .faq-icon-box {
+    background-color: rgba(59, 130, 246, 0.1) !important;
+    border-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+.faq-item-active .faq-icon {
+    color: #60a5fa !important;
+}
+
+input:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+@media (max-width: 767px) {
+    .bg-grid {
+        background-size: 30px 30px;
+    }
+    #mobileMenu.menu-open {
+        display: flex !important;
+        animation: mobileMenuIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+}
+
+@keyframes mobileMenuIn {
+    0% {
+        transform: scale(0.95) translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
 }
