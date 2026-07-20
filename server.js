@@ -7,8 +7,12 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 app.get(['/register', '/register/'], (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'register', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'register', 'register.html'));
 });
+
+app.use('/register', express.static(path.resolve(__dirname, 'register'), {
+    index: false
+}));
 
 app.use(express.static(__dirname));
 

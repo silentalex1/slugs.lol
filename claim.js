@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitButton.classList.remove('hover:-translate-y-1', 'active:scale-[0.98]');
 
                 setTimeout(() => {
-                    window.location.href = `/register/?claim=${encodeURIComponent(username)}&ref=landing_page`;
+                    window.location.href = `/register/?claim=${encodeURIComponent(username)}&ref=header`;
                 }, 800);
             }
         });
