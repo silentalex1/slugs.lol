@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const username = usernameInput.value.trim();
             if (username) {
-                window.location.href = `register?claim=${encodeURIComponent(username)}&ref=landing_page`;
+                window.location.href = `/register/?claim=${encodeURIComponent(username)}&ref=landing_page`;
             } else {
                 usernameInput.focus();
             }

@@ -5,6 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+
+app.get(['/register', '/register/'], (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'register', 'index.html'));
+});
+
 app.use(express.static(__dirname));
 
 const DATA_FILE = path.join(__dirname, 'users.json');
