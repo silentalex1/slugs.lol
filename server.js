@@ -6,7 +6,11 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-app.get(['/register', '/register/'], (req, res) => {
+app.get('/register', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'register', 'register.html'));
+});
+
+app.get('/register/', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'register', 'register.html'));
 });
 
@@ -38,6 +42,32 @@ async function saveUsers(users) {
         throw error;
     }
 }
+
+app.get('/api/stats', async (req, res) => {
+    try {
+        const users = await loadUsers();
+        let totalProfileViews = 0;
+        let registeredUsers = users.length;
+        let filesHosted = 0;
+        let activeSubscribers = 0;
+
+        users.forEach(user => {
+            if (user.profileViews) totalProfileViews += parseInt(user.profileViews) || 0;
+            if (user.hasBio || user.bio) totalProfileViews += 1;
+            if (user.filesCount || user.videoUploaded) filesHosted += parseInt(user.filesCount) || 1;
+            if (user.activeSubscription || user.premium) activeSubscribers += 1;
+        });
+
+        res.json({
+            totalProfileViews,
+            registeredUsers,
+            filesHosted,
+            activeSubscribers
+        });
+    } catch (error) {
+        res.json({ totalProfileViews: 0, registeredUsers: 0, filesHosted: 0, activeSubscribers: 0 });
+    }
+});
 
 app.post('/api/check-username', async (req, res) => {
     try {
@@ -124,7 +154,11 @@ app.post('/api/register', async (req, res) => {
             email: normalizedEmail,
             password,
             createdAt: new Date().toISOString(),
-            verified: false
+            verified: false,
+            profileViews: 0,
+            bio: "",
+            videoUploaded: false,
+            activeSubscription: false
         };
 
         users.push(newUser);
