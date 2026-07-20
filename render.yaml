@@ -1,9 +1,11 @@
 services:
   - type: web
     name: slugs-lol-website
-    runtime: node
+    env: node
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node server.js
+    plan: free
+    nodeVersion: 18
     envVars:
-      - key: NODE_VERSION
-        value: "18"
+      - key: NODE_ENV
+        value: production
