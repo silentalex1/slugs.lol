@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+html, body {
+    font-family: 'Inter', sans-serif;
+    background-color: #050505;
+}
+
+.bg-grid {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.radial-mask {
+    background: radial-gradient(circle at 50% 50%, transparent 15%, #050505 100%);
+}
+
+.shape-1 {
+    animation: float1 25s infinite ease-in-out alternate;
+}
+
+.shape-2 {
+    animation: float2 30s infinite ease-in-out alternate;
+}
+
+.shape-3 {
+    animation: float3 20s infinite ease-in-out alternate-reverse;
+}
+
+@keyframes float1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, 40px) scale(1.1); }
+}
+
+@keyframes float2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-40px, -40px) scale(1.15); }
+}
+
+@keyframes float3 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(30px, -40px) scale(1.05); }
+}
+
+.floating-circle {
+    animation: float-circle 20s ease-in-out infinite alternate;
+}
+
+.floating-triangle {
+    animation: float-triangle 25s ease-in-out infinite alternate-reverse;
+    transform-origin: center;
+}
+
+.floating-rect {
+    animation: float-rect 22s ease-in-out infinite alternate;
+}
+
+@keyframes float-circle {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(-40px, 50px) scale(1.1) rotate(45deg); }
+    100% { transform: translate(30px, -30px) scale(0.9) rotate(-15deg); }
+}
+
+@keyframes float-triangle {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(50px, -60px) rotate(35deg); }
+    100% { transform: translate(-30px, 40px) rotate(-25deg); }
+}
+
+@keyframes float-rect {
+    0% { transform: translate(0, 0) rotate(-12deg); }
+    50% { transform: translate(40px, 40px) rotate(-5deg); }
+    100% { transform: translate(-40px, -30px) rotate(-20deg); }
+}
+
+.smooth-transition {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+@media (max-width: 640px) {
+    .floating-circle {
+        right: 5%;
+        bottom: 10%;
+    }
+    
+    .floating-triangle {
+        right: 2%;
+        top: 8%;
+    }
+    
+    .floating-rect {
+        left: -5%;
+        top: 18%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+}

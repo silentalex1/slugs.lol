@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slugs.lol - #1 bio site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#050505] text-white font-sans antialiased overflow-x-hidden relative min-h-screen selection:bg-blue-600 selection:text-white">
+
+    <div class="fixed inset-0 z-[-30] bg-grid opacity-20 pointer-events-none"></div>
+    <div class="fixed inset-0 z-[-25] radial-mask pointer-events-none"></div>
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none -z-20">
+        <div class="shape-1 absolute top-[-15%] left-[-10%] w-[800px] h-[800px] bg-blue-600/15 rounded-full blur-[150px]"></div>
+        <div class="shape-2 absolute top-[30%] right-[-15%] w-[900px] h-[900px] bg-indigo-900/20 rounded-full blur-[180px]"></div>
+        <div class="shape-3 absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-purple-900/10 rounded-full blur-[120px]"></div>
+    </div>
+
+    <nav class="sticky top-6 z-50 mx-auto max-w-[1100px] w-[calc(100%-2rem)] md:w-[calc(100%-3rem)] bg-[#0a0a0a]/90 backdrop-blur-2xl border border-white/10 rounded-full flex items-center justify-between px-5 md:px-6 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.5)] transition-all hover:border-white/20 hover:shadow-[0_12px_40px_rgba(0,0,0,0.6)]">
+        <div class="flex items-center gap-3 cursor-pointer pl-1 md:pl-2 group">
+            <img src="slugslol.png" alt="slugs.lol logo" class="w-6 h-6 object-contain bg-transparent transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+            <span class="text-xl font-extrabold tracking-tight text-white drop-shadow-md">slugs.lol</span>
+        </div>
+        
+        <div class="hidden lg:flex items-center space-x-8">
+            <a href="#" class="text-sm font-medium text-gray-400 hover:text-white transition-colors hover:scale-105 transform">Help center</a>
+            <a href="#" class="text-sm font-medium text-gray-400 hover:text-white transition-colors hover:scale-105 transform">Leaderboard</a>
+            <a href="#pricing" class="text-sm font-medium text-gray-400 hover:text-white transition-colors hover:scale-105 transform">Pricing</a>
+            <a href="#" class="text-sm font-medium text-gray-400 hover:text-white transition-colors hover:scale-105 transform">Login</a>
+            <a href="register?ref=header" class="text-sm font-bold bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-7 py-2.5 rounded-full transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_30px_rgba(37,99,235,0.5)] transform hover:-translate-y-0.5 hover:scale-105">Sign Up Free</a>
+            <a href="#" class="text-sm font-bold border border-white/10 bg-white/5 text-gray-200 hover:bg-white/10 hover:border-white/20 px-7 py-2.5 rounded-full transition-all shadow-lg transform hover:-translate-y-0.5 hover:scale-105 backdrop-blur-md">Username Generator</a>
+        </div>
+
+        <button id="mobileMenuBtn" class="lg:hidden text-gray-300 hover:text-white p-1 transition-transform hover:scale-110">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 z-40 bg-[#050505]/98 backdrop-blur-xl hidden flex-col items-center justify-center space-y-8 pt-20 px-6 opacity-0 transition-opacity duration-300">
+        <a href="#" class="text-2xl font-semibold text-white hover:text-blue-400 transition-colors">Help center</a>
+        <a href="#" class="text-2xl font-semibold text-white hover:text-blue-400 transition-colors">Leaderboard</a>
+        <a href="#pricing" class="text-2xl font-semibold text-white mobile-link hover:text-blue-400 transition-colors">Pricing</a>
+        <a href="register" class="text-2xl font-semibold text-white mobile-link hover:text-blue-400 transition-colors">Login</a>
+        <a href="register?ref=landing_page" class="w-full text-center text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-full mt-4 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all">Sign Up Free</a>
+        <a href="#" class="w-full text-center text-xl font-bold border border-white/20 bg-white/5 text-white px-8 py-4 rounded-full hover:bg-white/10 transition-all">Username Generator</a>
+    </div>
+
+    <header class="pt-24 md:pt-32 pb-20 md:pb-24 px-4 text-center max-w-[1200px] mx-auto relative z-10 flex flex-col items-center min-h-[85vh] justify-center">
+        
+        <div class="absolute inset-0 pointer-events-none flex justify-between items-center overflow-hidden z-[-5]">
+            <svg class="absolute left-[-15%] md:left-[-5%] top-[10%] w-[200px] md:w-[300px] h-[800px] text-blue-500/30 opacity-70 side-line-left" viewBox="0 0 100 500" fill="none" preserveAspectRatio="none">
+                <path d="M 80 0 C 20 150, 100 350, 10 500" stroke="url(#gradient-left)" stroke-width="1.5" stroke-linecap="round" class="line-path" />
+                <defs>
+                    <linearGradient id="gradient-left" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(59, 130, 246, 0)" />
+                        <stop offset="50%" stop-color="rgba(59, 130, 246, 1)" />
+                        <stop offset="100%" stop-color="rgba(59, 130, 246, 0)" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            
+            <svg class="absolute right-[-15%] md:right-[-5%] top-[10%] w-[200px] md:w-[300px] h-[800px] text-indigo-500/30 opacity-70 side-line-right" viewBox="0 0 100 500" fill="none" preserveAspectRatio="none">
+                <path d="M 20 0 C 80 150, 0 350, 90 500" stroke="url(#gradient-right)" stroke-width="1.5" stroke-linecap="round" class="line-path" />
+                <defs>
+                    <linearGradient id="gradient-right" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="rgba(99, 102, 241, 0)" />
+                        <stop offset="50%" stop-color="rgba(99, 102, 241, 1)" />
+                        <stop offset="100%" stop-color="rgba(99, 102, 241, 0)" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="absolute hidden lg:block left-[2%] top-[25%] w-[320px] h-[220px] border border-white/10 bg-gradient-to-br from-white/10 to-white/0 rounded-[2rem] transform -rotate-6 backdrop-blur-md -z-10 floating-shape-1 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div class="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent rounded-[2rem]"></div>
+        </div>
+        
+        <div class="absolute hidden lg:block right-[2%] top-[20%] w-[280px] h-[280px] transform rotate-12 -z-10 floating-shape-2">
+            <svg viewBox="0 0 100 100" class="w-full h-full text-indigo-500/10 drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]" fill="currentColor">
+                <polygon points="5,5 95,5 50,90" />
+            </svg>
+            <svg viewBox="0 0 100 100" class="w-full h-full absolute inset-0 text-white/20 filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]" fill="none" stroke="currentColor" stroke-width="1">
+                <polygon points="5,5 95,5 50,90" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <div class="inline-flex items-center gap-2 md:gap-3 bg-[#0a1122]/95 border border-blue-500/40 text-blue-200 px-5 md:px-6 py-2.5 rounded-full text-[10px] md:text-xs font-bold mb-8 md:mb-10 tracking-widest uppercase backdrop-blur-md shadow-[0_0_25px_rgba(37,99,235,0.2)] hover:border-blue-400/60 hover:shadow-[0_0_35px_rgba(37,99,235,0.3)] transition-all text-center transform hover:scale-105">
+            <span class="relative flex h-2.5 w-2.5 shrink-0">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-blue-500 shadow-[0_0_10px_#3b82f6]"></span>
+            </span>
+            Welcome to the new era of link-in-bio pages
+        </div>
+        
+        <h1 class="text-5xl sm:text-6xl md:text-[7.5rem] font-black mb-6 tracking-tighter leading-[1.1] md:leading-[1.02] max-w-5xl drop-shadow-2xl">
+            Centralize your <br><span class="identity-text font-serif italic font-normal tracking-normal text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 drop-shadow-[0_0_40px_rgba(99,102,241,0.4)]">online identity.</span>
+        </h1>
+        
+        <p class="text-lg md:text-2xl text-gray-400 mb-10 md:mb-14 max-w-3xl leading-relaxed font-medium px-2">
+            slugs.lol is the ultimate hub establishing a <span class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-3 md:px-4 py-1 rounded-xl font-bold shadow-[0_4px_20px_rgba(37,99,235,0.4)] mx-1 relative top-[-2px]">rich</span> social bio, linking your socials, and sharing files with lightning fast video uploads.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 md:gap-5 w-full max-w-sm sm:max-w-none px-4 sm:px-0">
+            <a href="register?ref=landing_page" class="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white px-10 md:px-12 py-4 rounded-full font-bold text-lg transition-all shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_40px_rgba(37,99,235,0.6)] transform hover:-translate-y-1 hover:scale-105 text-center">Sign Up for Free</a>
+            <a href="#pricing" class="w-full sm:w-auto border border-white/10 hover:border-white/20 hover:bg-white/10 bg-white/5 text-white px-10 md:px-12 py-4 rounded-full font-bold text-lg transition-all transform hover:-translate-y-1 hover:scale-105 backdrop-blur-md shadow-xl text-center">View Pricing</a>
+        </div>
+    </header>
+
+    <section class="py-20 md:py-32 px-6 relative z-10 border-t border-white/5 bg-gradient-to-b from-transparent to-[#030303]">
+        <div class="text-center mb-16 md:mb-20">
+            <h2 class="text-4xl md:text-6xl font-black mb-4 md:mb-6 tracking-tight">Start with <span class="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-indigo-600">0</span> limits.</h2>
+            <p class="text-gray-400 font-medium text-lg md:text-xl max-w-2xl mx-auto px-4">Join a growing network of creators redefining their digital space.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-[1200px] mx-auto">
+            <div class="bg-[#0a0a0a]/50 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-[#111111]/90 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-indigo-400 transition-all">0</div>
+                <div class="text-gray-500 font-bold text-xs md:text-sm tracking-[0.2em] uppercase">Total Profile Views</div>
+            </div>
+            <div class="bg-[#0a0a0a]/50 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-[#111111]/90 hover:border-indigo-500/30 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-400 group-hover:to-purple-400 transition-all">0</div>
+                <div class="text-gray-500 font-bold text-xs md:text-sm tracking-[0.2em] uppercase">Registered Users</div>
+            </div>
+            <div class="bg-[#0a0a0a]/50 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-[#111111]/90 hover:border-purple-500/30 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">0</div>
+                <div class="text-gray-500 font-bold text-xs md:text-sm tracking-[0.2em] uppercase">Files Hosted</div>
+            </div>
+            <div class="bg-[#0a0a0a]/50 backdrop-blur-xl border border-white/5 p-8 md:p-10 rounded-[2rem] flex flex-col items-center text-center hover:bg-[#111111]/90 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group shadow-2xl relative overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-b from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div class="text-5xl md:text-6xl font-black text-white mb-3 md:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-indigo-400 transition-all">0</div>
+                <div class="text-gray-500 font-bold text-xs md:text-sm tracking-[0.2em] uppercase">Active Subscribers</div>
+            </div>
+        </div>
+
+        <div class="mt-20 md:mt-32 text-center bg-gradient-to-br from-[#0a0a0a] to-[#050505] border border-white/5 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 max-w-5xl mx-auto shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/10 via-indigo-600/10 to-purple-600/10 blur-[100px] rounded-[3rem] group-hover:opacity-100 opacity-50 transition-opacity duration-700"></div>
+            <h3 class="text-3xl md:text-4xl font-black mb-6 md:mb-10 tracking-tight relative z-10">Secure your unique handle today</h3>
+            <form id="claimForm" class="flex flex-col justify-center w-full max-w-2xl mx-auto relative z-10">
+                <div class="flex flex-col sm:flex-row items-center bg-transparent sm:bg-[#000000]/80 sm:backdrop-blur-xl rounded-[2rem] sm:rounded-full sm:border border-white/10 sm:hover:border-indigo-500/50 sm:focus-within:border-indigo-500/80 sm:focus-within:shadow-[0_0_30px_rgba(99,102,241,0.2)] transition-all overflow-hidden w-full p-0 sm:p-2.5 sm:shadow-inner gap-4 sm:gap-0">
+                    <div class="flex items-center w-full bg-[#000000]/80 rounded-full border border-white/10 p-2 sm:border-none sm:bg-transparent sm:rounded-none sm:p-0">
+                        <span class="pl-6 sm:pl-8 pr-2 py-3 sm:py-4 text-gray-500 font-bold text-base sm:text-lg select-none transition-colors focus-within:text-indigo-400">slugs.lol/</span>
+                        <input type="text" id="usernameInput" class="bg-transparent text-white font-bold text-base sm:text-lg outline-none w-full placeholder-gray-700" placeholder="yourname" autocomplete="off">
+                    </div>
+                    <button type="submit" class="w-full sm:w-auto whitespace-nowrap bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 px-10 py-4 rounded-full font-bold text-white text-base transition-all transform hover:scale-105 active:scale-95 shadow-lg">Claim Now</button>
+                </div>
+                <div id="usernameStatus" class="mt-3 text-sm font-medium text-gray-500 min-h-[20px]"></div>
+            </form>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 md:py-32 px-4 md:px-6 relative z-10">
+        <h2 class="text-4xl md:text-6xl font-black text-center mb-16 md:mb-24 tracking-tight">Explore our exclusive plans</h2>
+        
+        <div class="flex flex-col lg:flex-row justify-center items-center lg:items-stretch gap-8 md:gap-10 max-w-[1100px] mx-auto">
+            
+            <div class="bg-[#0a0a0a]/70 backdrop-blur-xl border border-white/5 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] w-full lg:w-1/2 flex flex-col hover:border-blue-500/30 hover:bg-[#0c0c0c]/90 transition-all shadow-2xl hover:shadow-[0_20px_50px_rgba(37,99,235,0.15)] hover:scale-105">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 text-white">Free</h3>
+                <div class="text-6xl md:text-7xl font-black mb-4 md:mb-6 tracking-tighter text-white">$0 <span class="text-lg md:text-xl text-gray-500 font-semibold tracking-normal">/Lifetime</span></div>
+                <p class="text-gray-400 mb-8 md:mb-12 md:h-12 font-medium text-sm md:text-base leading-relaxed">For beginners, link all your socials in one place.</p>
+                <ul class="space-y-5 md:space-y-6 mb-10 md:mb-14 flex-1">
+                    <li class="flex items-center text-gray-300 font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Basic Customization</li>
+                    <li class="flex items-center text-gray-300 font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Profile Analytics</li>
+                    <li class="flex items-center text-gray-300 font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Basic Effects</li>
+                    <li class="flex items-center text-gray-300 font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Add Your Socials</li>
+                </ul>
+                <button class="w-full bg-[#141414] hover:bg-[#202020] text-white py-4 md:py-5 rounded-full font-bold text-sm md:text-base transition-all border border-white/10 shadow-inner hover:shadow-lg transform hover:-translate-y-1">Get Started</button>
+            </div>
+            
+            <div class="bg-gradient-to-b from-[#0a1122] to-[#050914] border border-indigo-500/30 p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] w-full lg:w-1/2 flex flex-col relative shadow-[0_30px_60px_rgba(79,70,229,0.2)] transform lg:-translate-y-6 backdrop-blur-xl hover:border-indigo-500/50 hover:shadow-[0_40px_80px_rgba(79,70,229,0.3)] hover:scale-105 transition-all duration-300">
+                <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-[2rem] md:rounded-[3rem] pointer-events-none"></div>
+                <div class="absolute -top-4 right-6 md:-top-5 md:right-10 bg-gradient-to-r from-blue-600 to-indigo-600 border border-white/20 text-white px-5 py-2 md:px-6 md:py-2.5 text-xs md:text-sm font-bold rounded-full shadow-[0_10px_20px_rgba(79,70,229,0.4)]">Most Popular</div>
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-2 md:gap-3 text-white">
+                    Premium
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 drop-shadow-[0_0_10px_rgba(99,102,241,0.8)]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                </h3>
+                <div class="text-5xl sm:text-6xl md:text-7xl font-black mb-4 md:mb-6 flex flex-wrap items-baseline gap-2 md:gap-4 tracking-tighter text-white">
+                    $5.66 
+                    <span class="text-xl md:text-2xl text-gray-500 line-through font-bold tracking-normal">$7.99</span>
+                    <span class="text-lg md:text-xl text-indigo-300 font-semibold tracking-normal">/Lifetime</span>
+                </div>
+                <p class="text-indigo-200/80 mb-8 md:mb-12 md:h-12 font-medium text-sm md:text-base leading-relaxed">Pay once. Keep it forever. Discover creativity & unlock more features.</p>
+                <ul class="space-y-5 md:space-y-6 mb-10 md:mb-14 flex-1">
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Exclusive Badge</li>
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Profile Layouts</li>
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Custom Fonts & Glitch Effects</li>
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Typewriter Animation</li>
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> Metadata & SEO Customization</li>
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> faster upload speed</li>
+                    <li class="flex items-center text-white font-medium text-sm md:text-base"><svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-400 mr-4 md:mr-5 shrink-0 drop-shadow-[0_0_8px_rgba(99,102,241,0.8)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg> early release to new bio style's</li>
+                </ul>
+                <button class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white py-4 md:py-5 rounded-full font-bold text-sm md:text-base transition-all shadow-[0_10px_30px_rgba(79,70,229,0.4)] transform hover:-translate-y-1 hover:scale-105">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 md:py-32 px-4 md:px-6 relative z-10 border-t border-white/5 bg-gradient-to-b from-[#030303] to-[#050505]">
+        <h2 class="text-3xl md:text-5xl font-black text-center mb-12 md:mb-20 tracking-tight">Frequently Asked Questions</h2>
+        <div class="max-w-4xl mx-auto space-y-4 md:space-y-5" id="faqContainer">
+            <div class="bg-[#0a0a0a]/90 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-[1.5rem] overflow-hidden faq-item transition-all duration-300 hover:border-blue-500/30 hover:bg-[#111111]/90 hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] hover:scale-[1.02] shadow-lg">
+                <div class="flex justify-between items-center p-6 md:p-8 cursor-pointer faq-header">
+                    <h4 class="font-bold text-lg md:text-xl text-gray-100 tracking-tight pr-4">What is slugs.lol?</h4>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 transform transition-transform faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="px-6 md:px-8 pb-6 md:pb-8 text-gray-400 text-base md:text-lg font-medium leading-relaxed hidden faq-answer">
+                    slugs.lol is a modern link-in-bio platform that provides advanced customization and secure file hosting to elevate your online identity.
+                </div>
+            </div>
+            
+            <div class="bg-[#0a0a0a]/90 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-[1.5rem] overflow-hidden faq-item transition-all duration-300 hover:border-blue-500/30 hover:bg-[#111111]/90 hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] hover:scale-[1.02] shadow-lg">
+                <div class="flex justify-between items-center p-6 md:p-8 cursor-pointer faq-header">
+                    <h4 class="font-bold text-lg md:text-xl text-gray-100 tracking-tight pr-4">Is slugs.lol free?</h4>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 transform transition-transform faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="px-6 md:px-8 pb-6 md:pb-8 text-gray-400 text-base md:text-lg font-medium leading-relaxed hidden faq-answer">
+                    Yes, we offer a completely free tier with basic customization, analytics, and standard effects. We also offer a lifetime premium tier for advanced features.
+                </div>
+            </div>
+
+            <div class="bg-[#0a0a0a]/90 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-[1.5rem] overflow-hidden faq-item transition-all duration-300 hover:border-blue-500/30 hover:bg-[#111111]/90 hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] hover:scale-[1.02] shadow-lg">
+                <div class="flex justify-between items-center p-6 md:p-8 cursor-pointer faq-header">
+                    <h4 class="font-bold text-lg md:text-xl text-gray-100 tracking-tight pr-4">How long does setup take?</h4>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 transform transition-transform faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="px-6 md:px-8 pb-6 md:pb-8 text-gray-400 text-base md:text-lg font-medium leading-relaxed hidden faq-answer">
+                    Setting up your customized profile and uploading your first files takes just a few minutes thanks to our intuitive dashboard design.
+                </div>
+            </div>
+            
+            <div class="bg-[#0a0a0a]/90 backdrop-blur-sm border border-white/5 rounded-xl md:rounded-[1.5rem] overflow-hidden faq-item transition-all duration-300 hover:border-blue-500/30 hover:bg-[#111111]/90 hover:shadow-[0_10px_30px_rgba(37,99,235,0.15)] hover:scale-[1.02] shadow-lg">
+                <div class="flex justify-between items-center p-6 md:p-8 cursor-pointer faq-header">
+                    <h4 class="font-bold text-lg md:text-xl text-gray-100 tracking-tight pr-4">Is slugs.lol safe?</h4>
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-indigo-500 transform transition-transform faq-icon shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path></svg>
+                </div>
+                <div class="px-6 md:px-8 pb-6 md:pb-8 text-gray-400 text-base md:text-lg font-medium leading-relaxed hidden faq-answer">
+                    Security is our top priority. Our file hosting utilizes modern encryption and best practices to ensure your data is secure.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#020202] pt-20 md:pt-32 pb-12 px-6 border-t border-white/5 relative z-10">
+        <div class="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-16 mb-16 md:mb-20">
+            <div class="sm:col-span-2 md:col-span-2">
+                <div class="flex items-center gap-3 mb-6 md:mb-8">
+                    <img src="slugslol.png" alt="slugs.lol logo" class="w-8 h-8 object-contain bg-transparent filter grayscale opacity-90">
+                    <span class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">slugs.lol</span>
+                </div>
+                <p class="text-gray-400 max-w-sm mb-8 md:mb-10 leading-relaxed font-medium text-sm md:text-base">
+                    Create feature-rich, customizable and modern link-in-bio pages with slugs.lol.
+                </p>
+                <div class="inline-flex items-center gap-3 bg-[#0a0a0a] border border-white/10 px-5 md:px-6 py-2.5 md:py-3 rounded-full shadow-inner">
+                    <div class="w-2.5 h-2.5 md:w-3 md:h-3 rounded-full bg-emerald-500 shadow-[0_0_12px_#10b981]"></div>
+                    <span class="text-[10px] md:text-xs font-bold text-gray-200 tracking-widest uppercase">System Status: All Good</span>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-xs md:text-sm mb-6 md:mb-8 text-white tracking-widest uppercase">General</h4>
+                <ul class="space-y-4 md:space-y-5">
+                    <li><a href="register" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Login</a></li>
+                    <li><a href="register?ref=landing_page" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Sign Up</a></li>
+                    <li><a href="#pricing" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Pricing</a></li>
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Recover Account</a></li>
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Leaderboard</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-xs md:text-sm mb-6 md:mb-8 text-white tracking-widest uppercase">Resources</h4>
+                <ul class="space-y-4 md:space-y-5">
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Help Center</a></li>
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Changelog</a></li>
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Redeem Code</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-xs md:text-sm mb-6 md:mb-8 text-white tracking-widest uppercase">Legal</h4>
+                <ul class="space-y-4 md:space-y-5">
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-500 text-sm md:text-base font-medium hover:text-white transition-colors">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center pt-8 md:pt-10 border-t border-white/10 text-gray-600 text-xs md:text-sm font-medium text-center md:text-left">
+            <p>Copyright © 2026 slugs.lol - All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
