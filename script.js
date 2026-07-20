@@ -1,30 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchStatistics();
-
-    const faqItems = document.querySelectorAll('.faq-item');
-    faqItems.forEach(item => {
-        item.addEventListener('click', () => {
-            const answer = item.querySelector('.faq-answer');
-            const icon = item.querySelector('.faq-icon');
-            const isOpen = item.classList.contains('faq-item-active');
-            
-            faqItems.forEach(otherItem => {
-                otherItem.classList.remove('faq-item-active');
-                const otherAnswer = otherItem.querySelector('.faq-answer');
-                const otherIcon = otherItem.querySelector('.faq-icon');
-                otherAnswer.style.maxHeight = '0';
-                otherAnswer.style.opacity = '0';
-                otherIcon.style.transform = 'rotate(0deg)';
-            });
-            
-            if (!isOpen) {
-                item.classList.add('faq-item-active');
-                answer.style.maxHeight = answer.scrollHeight + 'px';
-                answer.style.opacity = '1';
-                icon.style.transform = 'rotate(180deg)';
-            }
-        });
-    });
+    setInterval(fetchStatistics, 30000);
 
     const claimForm = document.getElementById('claimForm');
     const usernameInput = document.getElementById('usernameInput');
@@ -87,25 +63,104 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                closeMobileMenu();
-            });
+            if(!link.classList.contains('login-trigger')) {
+                link.addEventListener('click', () => {
+                    closeMobileMenu();
+                });
+            }
         });
     }
 
     function closeMobileMenu() {
-        mobileMenu.classList.remove('menu-open');
-        mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
-        setTimeout(() => {
-            if (!mobileMenu.classList.contains('menu-open')) {
-                mobileMenu.classList.add('hidden');
+        if(mobileMenu) {
+            mobileMenu.classList.remove('menu-open');
+            if(mobileMenuBtn) {
+                mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
             }
-        }, 300);
+            setTimeout(() => {
+                if (!mobileMenu.classList.contains('menu-open')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }, 300);
+        }
     }
+
+    const loginTriggers = document.querySelectorAll('.login-trigger');
+    const createAccountBtn = document.getElementById('createAccountBtn');
+    const flipper = document.getElementById('flipper');
+    const formFlipContainer = document.getElementById('formFlipContainer');
+    const mainTitle = document.getElementById('mainTitle');
+    const loginEmail = document.getElementById('loginEmail');
+    const passwordFieldContainer = document.getElementById('passwordFieldContainer');
+
+    function updateContainerHeight() {
+        if(!flipper || !formFlipContainer) return;
+        const isFlipped = flipper.classList.contains('rotate-y-180');
+        const activeFace = isFlipped ? document.getElementById('loginFace') : document.getElementById('claimFace');
+        if(activeFace) {
+            formFlipContainer.style.height = `${activeFace.offsetHeight}px`;
+        }
+    }
+
+    function updateTitleText(newText) {
+        if(!mainTitle) return;
+        mainTitle.style.opacity = '0';
+        setTimeout(() => {
+            mainTitle.innerHTML = newText;
+            mainTitle.style.opacity = '1';
+        }, 250);
+    }
+
+    loginTriggers.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeMobileMenu();
+            if(flipper && !flipper.classList.contains('rotate-y-180')) {
+                flipper.classList.add('rotate-y-180');
+                updateTitleText("Login to your account.");
+                setTimeout(updateContainerHeight, 50);
+            }
+        });
+    });
+
+    const homeLoginBtn = document.getElementById('homeLoginBtn');
+    if (homeLoginBtn) {
+        homeLoginBtn.addEventListener('click', () => {
+            window.location.href = '/login';
+        });
+    }
+
+    if(createAccountBtn) {
+        createAccountBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            if(flipper && flipper.classList.contains('rotate-y-180')) {
+                flipper.classList.remove('rotate-y-180');
+                updateTitleText("Claim your user");
+                setTimeout(updateContainerHeight, 50);
+            }
+        });
+    }
+
+    if(loginEmail && passwordFieldContainer) {
+        loginEmail.addEventListener('input', (e) => {
+            if(e.target.value.trim().length > 0) {
+                passwordFieldContainer.classList.remove('opacity-0', 'max-h-0', 'invisible');
+                passwordFieldContainer.classList.add('opacity-100', 'max-h-[120px]', 'visible');
+            } else {
+                passwordFieldContainer.classList.add('opacity-0', 'max-h-0', 'invisible');
+                passwordFieldContainer.classList.remove('opacity-100', 'max-h-[120px]', 'visible');
+            }
+            setTimeout(updateContainerHeight, 150);
+        });
+    }
+
+    window.addEventListener('load', updateContainerHeight);
+    window.addEventListener('resize', updateContainerHeight);
 });
 
 async function checkUsernameAvailability(username) {
     const usernameStatus = document.getElementById('usernameStatus');
+    if(!usernameStatus) return;
     try {
         const response = await fetch('/api/check-username', {
             method: 'POST',
@@ -127,14 +182,14 @@ async function fetchStatistics() {
     try {
         const response = await fetch('/api/stats');
         const data = await response.json();
-        document.getElementById('statTotalProfileViews').textContent = data.totalProfileViews;
-        document.getElementById('statRegisteredUsers').textContent = data.registeredUsers;
-        document.getElementById('statFilesHosted').textContent = data.filesHosted;
-        document.getElementById('statActiveSubscribers').textContent = data.activeSubscribers;
+        if(document.getElementById('statTotalProfileViews')) document.getElementById('statTotalProfileViews').textContent = data.totalProfileViews;
+        if(document.getElementById('statRegisteredUsers')) document.getElementById('statRegisteredUsers').textContent = data.registeredUsers;
+        if(document.getElementById('statFilesHosted')) document.getElementById('statFilesHosted').textContent = data.filesHosted;
+        if(document.getElementById('statActiveSubscribers')) document.getElementById('statActiveSubscribers').textContent = data.activeSubscribers;
     } catch (error) {
-        document.getElementById('statTotalProfileViews').textContent = '0';
-        document.getElementById('statRegisteredUsers').textContent = '0';
-        document.getElementById('statFilesHosted').textContent = '0';
-        document.getElementById('statActiveSubscribers').textContent = '0';
+        if(document.getElementById('statTotalProfileViews')) document.getElementById('statTotalProfileViews').textContent = '0';
+        if(document.getElementById('statRegisteredUsers')) document.getElementById('statRegisteredUsers').textContent = '0';
+        if(document.getElementById('statFilesHosted')) document.getElementById('statFilesHosted').textContent = '0';
+        if(document.getElementById('statActiveSubscribers')) document.getElementById('statActiveSubscribers').textContent = '0';
     }
 }
