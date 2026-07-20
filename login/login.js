@@ -1,22 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const resetForm = document.getElementById('resetForm');
-    const flipCard = document.getElementById('flipCard');
     const forgotPasswordBtn = document.getElementById('forgotPasswordBtn');
-    const flipBackButton = document.getElementById('flipBackButton');
-    const backToLoginText = document.getElementById('backToLoginText');
+    const closeResetModal = document.getElementById('closeResetModal');
+    const resetModal = document.getElementById('resetModal');
 
-    function flipToReset() {
-        if (flipCard) flipCard.classList.add('is-flipped');
+    if (forgotPasswordBtn && resetModal) {
+        forgotPasswordBtn.addEventListener('click', () => {
+            resetModal.classList.remove('hidden');
+        });
     }
 
-    function flipToLogin() {
-        if (flipCard) flipCard.classList.remove('is-flipped');
+    if (closeResetModal && resetModal) {
+        closeResetModal.addEventListener('click', () => {
+            resetModal.classList.add('hidden');
+        });
     }
 
-    if (forgotPasswordBtn) forgotPasswordBtn.addEventListener('click', flipToReset);
-    if (flipBackButton) flipBackButton.addEventListener('click', flipToLogin);
-    if (backToLoginText) backToLoginText.addEventListener('click', flipToLogin);
+    if (resetModal) {
+        resetModal.addEventListener('click', (e) => {
+            if (e.target === resetModal) {
+                resetModal.classList.add('hidden');
+            }
+        });
+    }
 
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerHTML = 'Reset Link Sent!';
                     submitBtn.classList.add('bg-green-700');
                     setTimeout(() => {
-                        flipToLogin();
+                        resetModal.classList.add('hidden');
                         restoreBtn();
                         submitBtn.classList.remove('bg-green-700');
                         resetForm.reset();
