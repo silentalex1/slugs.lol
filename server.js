@@ -5,9 +5,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..')));
+app.use(express.static(__dirname));
 
-const DATA_FILE = path.join(__dirname, '..', 'users.json');
+const DATA_FILE = path.join(__dirname, 'users.json');
 
 async function loadUsers() {
     try {
