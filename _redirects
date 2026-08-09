@@ -1,7 +1,0 @@
-# Let real server routes through untouched (adjust if you add more, e.g. /api/*)
-/_serverFn/*  /_serverFn/:splat  200
-
-# Everything else that isn't a static asset falls back to the SPA shell,
-# so TanStack Start's client router can resolve routes like /dashboard
-# and /$username that can't be pre-rendered.
-/*  /_shell.html  200
